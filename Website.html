@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuhang Zheng | Biochemistry Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf8;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --text-light: #777;
+    --accent: #2c5f7c;
+    --accent-light: #e8f0f4;
+    --border: #ddd;
+    --card-bg: #fff;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 40px;
+  }
+  nav .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+  }
+  nav .name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav .links { display: flex; gap: 28px; }
+  nav .links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 40px 60px;
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+  }
+  .hero-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    color: var(--accent);
+    border: 3px solid var(--border);
+  }
+  .hero-text h1 {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .hero-text .subtitle {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .hero-text .subtitle a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .hero-text .subtitle a:hover { text-decoration: underline; }
+  .hero-text .contact-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-text .contact-links a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .hero-text .contact-links a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px;
+  }
+  section h2 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--text);
+    display: inline-block;
+  }
+
+  /* ABOUT */
+  .about p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 680px;
+  }
+
+  /* RESEARCH CARDS */
+  .research-entry {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.2s;
+  }
+  .research-entry:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .research-entry .lab-name {
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .research-entry .lab-role {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .research-entry .lab-dates {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+  }
+  .research-entry .lab-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .skill-category h3 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .skill-category ul {
+    list-style: none;
+    padding: 0;
+  }
+  .skill-category ul li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 3px 0;
+    line-height: 1.6;
+  }
+
+  /* EDUCATION */
+  .edu-entry {
+    margin-bottom: 16px;
+  }
+  .edu-entry .school {
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .edu-entry .degree {
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .edu-entry .details {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  /* PUBLICATIONS / PRESENTATIONS */
+  .pub-note {
+    font-size: 15px;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  .seminar-entry {
+    margin-bottom: 12px;
+  }
+  .seminar-entry .seminar-title {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .seminar-entry .seminar-detail {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* LANGUAGES */
+  .lang-list {
+    display: flex;
+    gap: 24px;
+  }
+  .lang-item {
+    text-align: center;
+  }
+  .lang-item .lang-name {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .lang-item .lang-level {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  /* FOOTER */
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+  }
+
+  /* CV DOWNLOAD */
+  .cv-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .cv-download:hover { background: #1e4a5f; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .hero { flex-direction: column; align-items: center; text-align: center; padding: 100px 20px 40px; gap: 24px; }
+    .hero-text .contact-links { justify-content: center; }
+    section { padding: 30px 20px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    nav .inner { padding: 0 20px; }
+    nav .links { gap: 16px; }
+    nav .links a { font-size: 13px; }
+    .lang-list { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text { animation: fadeUp 0.6s ease-out; }
+  .hero-photo { animation: fadeUp 0.6s ease-out 0.1s both; }
+  section { animation: fadeUp 0.5s ease-out both; }
+  section:nth-child(2) { animation-delay: 0.15s; }
+  section:nth-child(3) { animation-delay: 0.2s; }
+  section:nth-child(4) { animation-delay: 0.25s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="#" class="name">Yuhang Zheng</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#cv">CV</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-photo">YZ</div>
+  <div class="hero-text">
+    <h1>Yuhang Zheng</h1>
+    <p class="subtitle">
+      Undergraduate Researcher in Biochemistry<br>
+      <a href="https://www.scripps.edu/faculty/engle/">Engle Lab</a> at Scripps Research &nbsp;|&nbsp;
+      <a href="https://www.ucsd.edu/">UC San Diego</a>
+    </p>
+    <div class="contact-links">
+      <a href="mailto:yuz259@ucsd.edu">Email</a>
+      <a href="#cv">CV</a>
+      <!-- Add these when you have them: -->
+      <!-- <a href="https://linkedin.com/in/yuhangzheng">LinkedIn</a> -->
+      <!-- <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a> -->
+    </div>
+  </div>
+</div>
+
+<section id="about" class="about">
+  <h2>About</h2>
+  <p>
+    I am a junior at the University of California, San Diego pursuing a B.S. in Biochemistry. I currently conduct research in the <a href="https://englelab.com/" style="color:var(--accent);text-decoration:none;font-weight:600;">Engle Lab</a> at the Scripps Research Institute, where I perform multi-step organic synthesis of small molecule drug candidates using transition metal-catalyzed methods.
+  </p>
+  <p style="margin-top:12px;">
+    My research interests lie at the intersection of organic chemistry and medicinal chemistry, with a focus on developing efficient synthetic routes to biologically active molecules. I am also interested in molecular biology, having recently completed a project cloning the bioluminescent <em>lux</em> operon from <em>Aliivibrio fischeri</em> into <em>E. coli</em>.
+  </p>
+  <p style="margin-top:12px;">
+    I speak English, Mandarin Chinese, and Japanese, and am interested in pursuing graduate studies in chemistry.
+  </p>
+</section>
+
+<section id="research">
+  <h2>Research</h2>
+
+  <div class="research-entry">
+    <div class="lab-role">Undergraduate Research Assistant</div>
+    <div class="lab-name">Engle Lab, The Scripps Research Institute</div>
+    <div class="lab-dates">January 2026 &ndash; Present &nbsp;|&nbsp; San Diego, CA</div>
+    <div class="lab-desc">
+      Conducting multi-step organic synthesis of small molecule drug candidates under the supervision of Yiyao Hu and Madison Wagner. Performing purification using column chromatography, TLC, and rotary evaporation, and characterizing products by NMR spectroscopy. The Engle group focuses on developing transition metal-catalyzed methods for efficient molecular construction with applications in medicinal chemistry.
+    </div>
+  </div>
+
+  <div class="research-entry">
+    <div class="lab-role">Recombinant DNA Laboratory (CHEM 109)</div>
+    <div class="lab-name">University of California, San Diego</div>
+    <div class="lab-dates">Spring 2026 &nbsp;|&nbsp; San Diego, CA</div>
+    <div class="lab-desc">
+      Cloned the <em>luxICDABEG</em> operon from <em>Aliivibrio fischeri</em> into <em>E. coli</em> using recombinant DNA techniques, generating bioluminescent bacterial colonies. Performed genomic and plasmid DNA isolation, SalI restriction digestion, ligation into pUC18, transformation of competent cells, and screening via blue/white selection and plate reader bioluminescence detection.
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3>Synthesis & Purification</h3>
+      <ul>
+        <li>Multi-step organic synthesis</li>
+        <li>Column chromatography</li>
+        <li>Thin-layer chromatography (TLC)</li>
+        <li>Rotary evaporation</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <h3>Instrumentation</h3>
+      <ul>
+        <li>Nuclear magnetic resonance (NMR)</li>
+        <li>UV-Vis spectrophotometry</li>
+        <li>Nanodrop spectrophotometer</li>
+        <li>Agarose gel electrophoresis</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <h3>Molecular Biology</h3>
+      <ul>
+        <li>DNA isolation & purification</li>
+        <li>Restriction digestion & ligation</li>
+        <li>Bacterial transformation</li>
+        <li>Blue/white screening</li>
+      </ul>
+    </div>
+    <div class="skill-category">
+      <h3>Software</h3>
+      <ul>
+        <li>ChemDraw</li>
+        <li>Microsoft Excel</li>
+        <li>MATLAB</li>
+        <li>Adobe Photoshop & Illustrator</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="edu-entry">
+    <div class="school">University of California, San Diego</div>
+    <div class="degree">Bachelor of Science in Biochemistry &nbsp;|&nbsp; Expected June 2027</div>
+    <div class="details">GPA: 3.59/4.00 &nbsp;|&nbsp; Provost Honors (5 terms) &nbsp;|&nbsp; Earl Warren College</div>
+  </div>
+</section>
+
+<section>
+  <h2>Seminars Attended</h2>
+  <div class="seminar-entry">
+    <div class="seminar-title">Scripps Research Department of Chemistry Seminar (2026)</div>
+    <div class="seminar-detail">Prof. Brian M. Stoltz (Caltech), &ldquo;Complex Natural Products as a Driving Force for Discovery in Organic Chemistry&rdquo;</div>
+  </div>
+</section>
+
+<section>
+  <h2>Publications & Presentations</h2>
+  <p class="pub-note">Coming soon.</p>
+</section>
+
+<section>
+  <h2>Languages</h2>
+  <div class="lang-list">
+    <div class="lang-item">
+      <div class="lang-name">English</div>
+      <div class="lang-level">Native</div>
+    </div>
+    <div class="lang-item">
+      <div class="lang-name">Mandarin Chinese</div>
+      <div class="lang-level">Fluent</div>
+    </div>
+    <div class="lang-item">
+      <div class="lang-name">Japanese</div>
+      <div class="lang-level">Conversational</div>
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <h2>CV</h2>
+  <p style="font-size:15px;color:var(--text-secondary);margin-bottom:16px;">Download my full curriculum vitae below.</p>
+  <!-- Replace this href with the actual path to your CV PDF once uploaded to GitHub -->
+  <a class="cv-download" href="Yuhang_Zheng_CV.pdf" download>
+    Download CV (PDF)
+  </a>
+</section>
+
+<footer>
+  &copy; 2026 Yuhang Zheng. Built with care.
+</footer>
+
+</body>
+</html>
